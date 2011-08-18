@@ -20,3 +20,5 @@ And run:
 * ( o )( o ) -- Input a byte and store it in the byte at the pointer. ','
 * ( @ )( @ ) -- Jump forward past the matching (q )( p) if the byte at the pointer is zero. '['
 * (q )( p) -- Jump backward to the matching ( @ )( @ ) unless the byte at the pointer is zero. ']'
+
+see http://www.muppetlabs.com/~breadbox/bf/
