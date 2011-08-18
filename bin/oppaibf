@@ -1,0 +1,23 @@
+#! /usr/bin/env ruby
+require 'rubygems'
+require 'bfrb'
+
+commands_map = {
+	"| . . |" => ">",
+	"| + + |" => "<",
+	"(.Y.)" => "+",
+	"(.)(.)" => "-",
+	"(o)(o)" => ".",
+	"( o )( o )" => ",",
+	"( @ )( @ )" => "[",
+	"(q )( p)" => "]",
+}
+commands_pattern = Regexp.new(commands_map.keys.map {|k| Regexp.escape(k)}.join('|'))
+
+src = ARGF.read
+
+str = src.gsub(commands_pattern) {|s| commands_map[s]}
+
+bf = BfRb::Interpreter.new
+bf.run str
+
